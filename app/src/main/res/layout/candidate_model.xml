@@ -37,6 +37,7 @@
                     android:textSize="24px"
                     android:textStyle="bold|italic"
                     android:layout_marginRight="6dp"
+                    android:textColor="#3F51B5"
                     android:typeface="serif"/>
 
                 <TextView
@@ -54,12 +55,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18px"
+                android:drawableLeft="@drawable/education"
                 android:typeface="serif"/>
 
             <TextView
                 android:id="@+id/legislature"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/legislature"/>
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
@@ -68,7 +71,9 @@
             <TextView
                 android:id="@+id/party_name"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:textSize="22px"
+                android:textColor="#3F51B5"/>
 
             <TextView
                 android:id="@+id/ward_const"
