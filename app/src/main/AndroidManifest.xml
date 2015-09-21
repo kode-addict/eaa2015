@@ -19,9 +19,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.CandidateList"/>
+        <activity android:name=".view.CandidateList"/>
         <activity android:name=".view.PartyList"/>
+        <activity android:name=".view.LoginActivity"/>
+        <activity android:name=".view.SignupActivit"/>
     </application>
 
 </manifest>

@@ -5,17 +5,60 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import org.maepaysoh.maepaysohsdk.models.Candidate;
 
 import mps.kodeaddict.eaa.view.CandidateList;
+import mps.kodeaddict.eaa.view.LoginActivity;
 import mps.kodeaddict.eaa.view.PartyList;
+import mps.kodeaddict.eaa.view.SignupActivit;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button candidate, party, login, signup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
-        startActivity(new Intent(MainActivity.this,PartyList.class));
+
+        candidate = (Button) findViewById(R.id.candidate);
+        party = (Button) findViewById(R.id.party);
+        login = (Button) findViewById(R.id.login);
+        signup = (Button) findViewById(R.id.signup);
+
+        candidate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, CandidateList.class));
+            }
+        });
+
+        party.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, PartyList.class));
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            }
+        });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, SignupActivit.class));
+            }
+        });
+
     }
 
     @Override
