@@ -4,6 +4,11 @@
     android:layout_height="match_parent"
     android:padding="6dp">
 
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/candidate_list"
         android:layout_width="match_parent"

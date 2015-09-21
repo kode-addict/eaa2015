@@ -11,20 +11,25 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import mps.kodeaddict.eaa.R;
 import mps.kodeaddict.eaa.model.CandidateModel;
+import mps.kodeaddict.eaa.model.CircleTransform;
 
 /**
  * Created by sanjay on 9/19/15.
  */
 public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.ViewHolder> {
 
-    private static List<CandidateModel> candidates = new ArrayList<CandidateModel>();
+    private Context mContext;
+    private List<CandidateModel> candidates = new ArrayList<CandidateModel>();
 
-    public CandidateAdapter(List<CandidateModel> candidates){
+    public CandidateAdapter(Context context, List<CandidateModel> candidates){
+        this.mContext = context;
         this.candidates = candidates;
     }
 
@@ -62,7 +67,7 @@ public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.View
         notifyDataSetChanged();
     }
 
-    public static List<CandidateModel> getCandidates() {
+    public List<CandidateModel> getCandidates() {
         return candidates;
     }
 
@@ -77,11 +82,10 @@ public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.View
     public void onBindViewHolder(CandidateAdapter.ViewHolder holder, int position) {
         CandidateModel can = candidates.get(position);
         holder.name.setText(can.name);
-        holder.age.setText(can.age+"");
         holder.education.setText(can.education);
         holder.legislature.setText(can.legislature);
-        holder.party_name.setText(can.party_name_en);
-        holder.ward_const.setText(can.ward_village+", "+can.const_name);
+        holder.ward_const.setText(can.ward_village+" / "+can.const_name);
+        Picasso.with(mContext).load(can.photo).transform(new CircleTransform()).resize(105, 105).into(holder.img);
 
     }
 
@@ -92,15 +96,13 @@ public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.View
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView img;
-        TextView name, age, education, legislature, party_name, ward_const;
+        TextView name, age, education, legislature, ward_const;
         public ViewHolder(View v) {
             super(v);
             img = (ImageView) v.findViewById(R.id.img);
             name = (TextView) v.findViewById(R.id.name);
-            age = (TextView) v.findViewById(R.id.age);
             education = (TextView) v.findViewById(R.id.education);
             legislature = (TextView) v.findViewById(R.id.legislature);
-            party_name = (TextView) v.findViewById(R.id.party_name);
             ward_const = (TextView) v.findViewById(R.id.ward_const);
             img.setImageResource(R.mipmap.ic_launcher);
         }
