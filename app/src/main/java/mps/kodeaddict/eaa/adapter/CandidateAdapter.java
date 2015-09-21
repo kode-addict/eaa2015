@@ -95,8 +95,10 @@ public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+
         ImageView img;
         TextView name, age, education, legislature, ward_const;
+
         public ViewHolder(View v) {
             super(v);
             img = (ImageView) v.findViewById(R.id.img);
@@ -104,7 +106,6 @@ public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.View
             education = (TextView) v.findViewById(R.id.education);
             legislature = (TextView) v.findViewById(R.id.legislature);
             ward_const = (TextView) v.findViewById(R.id.ward_const);
-            img.setImageResource(R.mipmap.ic_launcher);
         }
     }
 }

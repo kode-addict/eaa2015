@@ -20,8 +20,8 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.CandidateList"
-            android:parentActivityName=".MainActivity" />
+            android:name=".view.CandidateList"/>
+        <activity android:name=".view.PartyList"/>
     </application>
 
 </manifest>

@@ -36,7 +36,7 @@ public class CandidateList extends AppCompatActivity {
     private RecyclerView.LayoutManager mLayoutManager;
     RecyclerView candidate_list;
 
-    List<CandidateModel> can;
+    List<CandidateModel> candidates;
     CandidateAdapter adapter;
 
     @Override
@@ -47,7 +47,7 @@ public class CandidateList extends AppCompatActivity {
 
         getSupportActionBar().hide();
 
-        can = new ArrayList<CandidateModel>();
+        candidates = new ArrayList<CandidateModel>();
 
         /*for (int i = 0; i < 10; i++) {
             CandidateModel c = new CandidateModel();
@@ -63,18 +63,17 @@ public class CandidateList extends AppCompatActivity {
 
         }*/
 
-        final TextView aa = (TextView) findViewById(R.id.test);
-
         candidate_list = (RecyclerView) this.findViewById(R.id.candidate_list);
         mLayoutManager = new LinearLayoutManager(this);
         candidate_list.setLayoutManager(mLayoutManager);
 
-        CandidateAPIHelper can_api = eaa.mps.getCandidateApiHelper();
-        can_api.getCandidatesAsync(new Callback<CandidateListReturnObject>() {
+        CandidateAPIHelper candidate_api = eaa.mps.getCandidateApiHelper();
+
+        candidate_api.getCandidatesAsync(new Callback<CandidateListReturnObject>() {
             @Override
             public void success(CandidateListReturnObject candidateListReturnObject, Response response) {
 
-                can.clear();
+                candidates.clear();
 
                 for (Candidate c : candidateListReturnObject.getData()) {
                     CandidateModel cm = new CandidateModel();
@@ -85,11 +84,11 @@ public class CandidateList extends AppCompatActivity {
                     cm.ward_village = c.getWard_village();
                     cm.const_name = c.getConstituency().getName();
                     cm.photo = c.getPhotoUrl();
-                    can.add(cm);
+                    candidates.add(cm);
                     Log.i("Item", cm.name);
                 }
 
-                adapter = new CandidateAdapter(getApplicationContext(), can);
+                adapter = new CandidateAdapter(getApplicationContext(), candidates);
 
                 candidate_list.setAdapter(adapter);
 
@@ -97,7 +96,7 @@ public class CandidateList extends AppCompatActivity {
 
             @Override
             public void failure(RetrofitError error) {
-                aa.setText(error.toString());
+                Toast.makeText(getApplication(), error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
 

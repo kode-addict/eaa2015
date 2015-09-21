@@ -40,7 +40,7 @@
 
 
             <TextView
-                android:id="@+id/education"
+                android:id="@+id/members"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="6dp"
@@ -48,7 +48,7 @@
                 android:typeface="serif" />
 
             <TextView
-                android:id="@+id/legislature"
+                android:id="@+id/leadership"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="6dp"
@@ -62,7 +62,7 @@
                 android:paddingTop="4dp" />
 
             <TextView
-                android:id="@+id/ward_const"
+                android:id="@+id/region_head"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingLeft="6dp" />

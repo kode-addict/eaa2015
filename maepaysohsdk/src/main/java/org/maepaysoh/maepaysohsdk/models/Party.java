@@ -95,7 +95,7 @@ public class Party implements Serializable {
   /**
    * @return The Leadership
    */
-  public List<String> getLeadership() {
+  public List<String>   getLeadership() {
     return Leadership;
   }
 

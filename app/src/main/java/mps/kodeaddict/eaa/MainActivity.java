@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import mps.kodeaddict.eaa.view.CandidateList;
+import mps.kodeaddict.eaa.view.PartyList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        startActivity(new Intent(MainActivity.this,CandidateList.class));
+        startActivity(new Intent(MainActivity.this,PartyList.class));
     }
 
     @Override
