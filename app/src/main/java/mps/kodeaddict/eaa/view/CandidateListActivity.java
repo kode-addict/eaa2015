@@ -31,7 +31,7 @@ import retrofit.client.Response;
 /**
  * Created by sanjay on 9/19/15.
  */
-public class CandidateList extends AppCompatActivity {
+public class CandidateListActivity extends AppCompatActivity {
 
     private RecyclerView.LayoutManager mLayoutManager;
     RecyclerView candidate_list;
@@ -96,6 +96,7 @@ public class CandidateList extends AppCompatActivity {
 
             @Override
             public void failure(RetrofitError error) {
+                Log.i("Error", error.toString());
                 Toast.makeText(getApplication(), error.toString(), Toast.LENGTH_SHORT).show();
             }
         });

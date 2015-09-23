@@ -83,7 +83,7 @@ public class PartyAdapter extends RecyclerView.Adapter<PartyAdapter.ViewHolder> 
         holder.members.setText("Members : " + part.members);
         holder.leadership.setText(part.leadership);
         holder.region_head.setText(part.region);
-        Picasso.with(mContext).load(part.photo).transform(new CircleTransform()).into(holder.img);
+        Picasso.with(mContext).load(part.photo).resize(105, 105).into(holder.img);
     }
 
     @Override

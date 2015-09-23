@@ -3,6 +3,7 @@ package org.maepaysoh.maepaysohsdk.models;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.nio.DoubleBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,7 +18,7 @@ public class Candidate implements Serializable {
     private String legislature;
     @SerializedName("national_id")
     private String nationalId;
-    private int birthdate;
+    private long birthdate;
     private String education;
     private String occupation;
     private String ethnicity;
@@ -129,14 +130,14 @@ public class Candidate implements Serializable {
     /**
      * @return The birthdate
      */
-    public int getBirthdate() {
+    public long getBirthdate() {
         return birthdate;
     }
 
     /**
      * @param birthdate The birthdate
      */
-    public void setBirthdate(int birthdate) {
+    public void setBirthdate(long birthdate) {
         this.birthdate = birthdate;
     }
 

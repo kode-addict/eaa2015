@@ -19,10 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.CandidateList"/>
-        <activity android:name=".view.PartyList"/>
+        <activity android:name=".view.CandidateListActivity"/>
+        <activity android:name=".view.PartyListActivity"/>
         <activity android:name=".view.LoginActivity"/>
         <activity android:name=".view.SignupActivit"/>
+        <activity android:name=".view.ChangePasswordActivity"/>
+        <activity android:name=".view.ChoseLocationActivity"/>
     </application>
 
 </manifest>

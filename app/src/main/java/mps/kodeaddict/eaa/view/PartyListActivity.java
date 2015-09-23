@@ -25,7 +25,7 @@ import retrofit.client.Response;
 /**
  * Created by sanjay on 9/21/15.
  */
-public class PartyList extends AppCompatActivity {
+public class PartyListActivity extends AppCompatActivity {
 
     private RecyclerView.LayoutManager mLayoutManager;
     RecyclerView party_list;

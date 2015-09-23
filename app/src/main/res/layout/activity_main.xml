@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
@@ -12,7 +13,8 @@
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center">
+        app:cardBackgroundColor="#21BA45"
+        app:cardCornerRadius="4dp">
 
         <Button
             android:id="@+id/candidate"
@@ -20,14 +22,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Candidate List"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textStyle="bold|italic"
-            android:background="@android:color/transparent"/>
+            android:background="#21BA45"/>
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#21BA45"
+        app:cardCornerRadius="4dp">
 
         <Button
             android:id="@+id/party"
@@ -35,14 +39,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Party List"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textStyle="bold|italic"
-            android:background="@android:color/transparent" />
+            android:background="#21BA45" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#21BA45"
+        app:cardCornerRadius="4dp">
 
         <Button
             android:id="@+id/login"
@@ -50,14 +56,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Login"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textStyle="bold|italic"
-            android:background="@android:color/transparent" />
+            android:background="#21BA45" />
     </android.support.v7.widget.CardView>
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#21BA45"
+        app:cardCornerRadius="4dp">
 
         <Button
             android:id="@+id/signup"
@@ -65,9 +73,43 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Sign Up"
-            android:textColor="@android:color/black"
+            android:textColor="@android:color/white"
             android:textStyle="bold|italic"
-            android:background="@android:color/transparent" />
+            android:background="#21BA45" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#21BA45"
+        app:cardCornerRadius="4dp">
+
+        <Button
+            android:id="@+id/changepass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Change Password"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|italic"
+            android:background="#21BA45" />
+    </android.support.v7.widget.CardView>
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#21BA45"
+        app:cardCornerRadius="4dp">
+
+        <Button
+            android:id="@+id/chose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Chose Location"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|italic"
+            android:background="#21BA45" />
     </android.support.v7.widget.CardView>
 
 </LinearLayout>

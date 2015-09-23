@@ -8,16 +8,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import org.maepaysoh.maepaysohsdk.models.Candidate;
-
-import mps.kodeaddict.eaa.view.CandidateList;
+import mps.kodeaddict.eaa.view.CandidateListActivity;
+import mps.kodeaddict.eaa.view.ChangePasswordActivity;
+import mps.kodeaddict.eaa.view.ChoseLocationActivity;
 import mps.kodeaddict.eaa.view.LoginActivity;
-import mps.kodeaddict.eaa.view.PartyList;
+import mps.kodeaddict.eaa.view.PartyListActivity;
 import mps.kodeaddict.eaa.view.SignupActivit;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button candidate, party, login, signup;
+    Button candidate, party, login, signup, changepass, chose;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,18 +30,20 @@ public class MainActivity extends AppCompatActivity {
         party = (Button) findViewById(R.id.party);
         login = (Button) findViewById(R.id.login);
         signup = (Button) findViewById(R.id.signup);
+        changepass = (Button) findViewById(R.id.changepass);
+        chose = (Button) findViewById(R.id.chose);
 
         candidate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, CandidateList.class));
+                startActivity(new Intent(MainActivity.this, CandidateListActivity.class));
             }
         });
 
         party.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, PartyList.class));
+                startActivity(new Intent(MainActivity.this, PartyListActivity.class));
             }
         });
 
@@ -56,6 +58,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, SignupActivit.class));
+            }
+        });
+
+        changepass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ChangePasswordActivity.class));
+            }
+        });
+
+        chose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, ChoseLocationActivity.class));
             }
         });
 
