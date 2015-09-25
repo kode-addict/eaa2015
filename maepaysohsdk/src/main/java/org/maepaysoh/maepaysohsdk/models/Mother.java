@@ -1,11 +1,9 @@
 package org.maepaysoh.maepaysohsdk.models;
 
-import java.io.Serializable;
-
 /**
- * Created by Ye Lin Aung on 15/08/03.
+ * Created by yemyatthu on 9/23/15.
  */
-public class Mother implements Serializable {
+public class Mother {
   private String name;
   private String religion;
 

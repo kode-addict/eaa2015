@@ -10,32 +10,56 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.33">
+
+            <TextView
+                android:id="@+id/select_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1.Chose State"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.33"
-            android:drawableRight="@drawable/mark"
-            android:text="1.Chose State" />
+            android:gravity="center_horizontal">
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.33"
+            <TextView
+                android:id="@+id/select_district"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2.Chose District"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+        </FrameLayout>
 
-            android:drawableRight="@drawable/mark"
-            android:gravity="center_horizontal"
-            android:text="2.Chose District" />
-
-        <TextView
+        <FrameLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.34"
+            android:gravity="right">
 
-            android:drawableRight="@drawable/mark"
-            android:gravity="right"
-            android:text="3.Chose Township" />
-
+            <TextView
+                android:id="@+id/select_township"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3.Chose Township"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+        </FrameLayout>
     </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/mfragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_horizontal_margin" />
 
 
 </LinearLayout>

@@ -1,251 +1,165 @@
 package org.maepaysoh.maepaysohsdk.models;
 
+import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
-import java.nio.DoubleBuffer;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Ye Lin Aung on 15/08/03.
  */
 public class Candidate implements Serializable {
 
-    private String id;
-    private String name;
-    private String mpid;
-    private String legislature;
-    @SerializedName("national_id")
-    private String nationalId;
-    private long birthdate;
-    private String education;
-    private String occupation;
-    private String ethnicity;
-    private String religion;
-    private Residency residency;
-    private String ward_village;
-    private Constituency constituency;
-    @SerializedName("party_id")
-    private String partyId;
-    private Mother mother;
-    private Father father;
-    private String gender;
-    @SerializedName("photo_url")
-    private String photoUrl;
+  private String id;
+  private String name;
+  private String mpid;
+  private String gender;
+  @SerializedName("photo_url") private String photoUrl;
+  private String legislature;
+  private long birthdate;
+  private String education;
+  private String occupation;
+  private String ethnicity;
+  private String religion;
+  @SerializedName("ward_village") @Expose private String wardVillage;
+  @SerializedName("constituency") @Expose private Constituency constituency;
+  @SerializedName("party_id") @Expose private Integer partyId;
+  private Mother mother;
+  private Father father;
+  private Party party;
 
-    public String getOccupation() {
-        return occupation;
-    }
+  public String getId() {
+    return id;
+  }
 
-    public void setOccupation(String occupation) {
-        this.occupation = occupation;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
+  public String getName() {
+    return name;
+  }
 
-    public String getWard_village() {
-        return ward_village;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public void setWard_village(String ward_village) {
-        this.ward_village = ward_village;
-    }
+  public String getMpid() {
+    return mpid;
+  }
 
-    public String getEthnicity() {
-        return ethnicity;
-    }
+  public void setMpid(String mpid) {
+    this.mpid = mpid;
+  }
 
-    public void setEthnicity(String ethnicity) {
-        this.ethnicity = ethnicity;
-    }
+  public String getGender() {
+    return gender;
+  }
 
-    public String getMpid() {
-        return mpid;
-    }
+  public void setGender(String gender) {
+    this.gender = gender;
+  }
 
-    public void setMpid(String mpid) {
-        this.mpid = mpid;
-    }
+  public String getPhotoUrl() {
+    return photoUrl;
+  }
 
+  public void setPhotoUrl(String photoUrl) {
+    this.photoUrl = photoUrl;
+  }
 
-    public Candidate() {
-    }
+  public String getLegislature() {
+    return legislature;
+  }
 
-    /**
-     * @return The id
-     */
-    public String getId() {
-        return id;
-    }
+  public void setLegislature(String legislature) {
+    this.legislature = legislature;
+  }
 
-    /**
-     * @param id The id
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
+  public long getBirthdate() {
+    return birthdate;
+  }
 
-    /**
-     * @return The name
-     */
-    public String getName() {
-        return name;
-    }
+  public void setBirthdate(long birthdate) {
+    this.birthdate = birthdate;
+  }
 
-    /**
-     * @param name The name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
+  public String getEducation() {
+    return education;
+  }
 
-    /**
-     * @return The legislature
-     */
-    public String getLegislature() {
-        return legislature;
-    }
+  public void setEducation(String education) {
+    this.education = education;
+  }
 
-    /**
-     * @param legislature The legislature
-     */
-    public void setLegislature(String legislature) {
-        this.legislature = legislature;
-    }
+  public String getOccupation() {
+    return occupation;
+  }
 
-    /**
-     * @return The nationalId
-     */
-    public String getNationalId() {
-        return nationalId;
-    }
+  public void setOccupation(String occupation) {
+    this.occupation = occupation;
+  }
 
-    /**
-     * @param nationalId The national_id
-     */
-    public void setNationalId(String nationalId) {
-        this.nationalId = nationalId;
-    }
+  public String getEthnicity() {
+    return ethnicity;
+  }
 
-    /**
-     * @return The birthdate
-     */
-    public long getBirthdate() {
-        return birthdate;
-    }
+  public void setEthnicity(String ethnicity) {
+    this.ethnicity = ethnicity;
+  }
 
-    /**
-     * @param birthdate The birthdate
-     */
-    public void setBirthdate(long birthdate) {
-        this.birthdate = birthdate;
-    }
+  public String getReligion() {
+    return religion;
+  }
 
-    public String getEducation() {
-        return education;
-    }
+  public void setReligion(String religion) {
+    this.religion = religion;
+  }
 
-    public void setEducation(String education) {
-        this.education = education;
-    }
+  public String getWardVillage() {
+    return wardVillage;
+  }
 
-    /**
-     * @return The nationalityReligion
-     */
-    public String getReligion() {
-        return religion;
-    }
+  public void setWardVillage(String wardVillage) {
+    this.wardVillage = wardVillage;
+  }
 
-    /**
-     * @param nationalityReligion The nationality_religion
-     */
-    public void setReligion(String nationalityReligion) {
-        this.religion = nationalityReligion;
-    }
+  public Constituency getConstituency() {
+    return constituency;
+  }
 
-    /**
-     * @return The residency
-     */
-    public Residency getResidency() {
-        return residency;
-    }
+  public void setConstituency(Constituency constituency) {
+    this.constituency = constituency;
+  }
 
-    /**
-     * @param residency The residency
-     */
-    public void setResidency(Residency residency) {
-        this.residency = residency;
-    }
+  public Integer getPartyId() {
+    return partyId;
+  }
 
-    /**
-     * @return The constituency
-     */
-    public Constituency getConstituency() {
-        return constituency;
-    }
+  public void setPartyId(Integer partyId) {
+    this.partyId = partyId;
+  }
 
-    /**
-     * @param constituency The constituency
-     */
-    public void setConstituency(Constituency constituency) {
-        this.constituency = constituency;
-    }
+  public Mother getMother() {
+    return mother;
+  }
 
-    /**
-     * @return The partyId
-     */
-    public String getPartyId() {
-        return partyId;
-    }
+  public void setMother(Mother mother) {
+    this.mother = mother;
+  }
 
-    /**
-     * @param partyId The party_id
-     */
-    public void setPartyId(String partyId) {
-        this.partyId = partyId;
-    }
+  public Father getFather() {
+    return father;
+  }
 
-    /**
-     * @return The mother
-     */
-    public Mother getMother() {
-        return mother;
-    }
+  public void setFather(Father father) {
+    this.father = father;
+  }
 
-    /**
-     * @param mother The mother
-     */
-    public void setMother(Mother mother) {
-        this.mother = mother;
-    }
+  public Party getParty() {
+    return party;
+  }
 
-    /**
-     * @return The father
-     */
-    public Father getFather() {
-        return father;
-    }
-
-    /**
-     * @param father The father
-     */
-    public void setFather(Father father) {
-        this.father = father;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
-    public String getPhotoUrl() {
-        return photoUrl;
-    }
-
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
-    }
+  public void setParty(Party party) {
+    this.party = party;
+  }
 }

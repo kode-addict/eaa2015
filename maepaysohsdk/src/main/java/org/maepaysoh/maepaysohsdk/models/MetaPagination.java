@@ -12,16 +12,7 @@ public class MetaPagination {
   @SerializedName("per_page") private int perPage;
   @SerializedName("current_page") private int currentPage;
   @SerializedName("total_pages") private int totalPages;
-
-  public MetaLinks getLinks() {
-    return links;
-  }
-
-  public void setLinks(MetaLinks links) {
-    this.links = links;
-  }
-
-  private MetaLinks links;
+  //private MetaLinks links;
 
   public MetaPagination() {
   }

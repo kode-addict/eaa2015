@@ -81,7 +81,7 @@ public class CandidateListActivity extends AppCompatActivity {
                     cm.name = c.getName();
                     cm.education = c.getEducation();
                     cm.legislature = c.getLegislature();
-                    cm.ward_village = c.getWard_village();
+                    cm.ward_village = c.getWardVillage();
                     cm.const_name = c.getConstituency().getName();
                     cm.photo = c.getPhotoUrl();
                     candidates.add(cm);
