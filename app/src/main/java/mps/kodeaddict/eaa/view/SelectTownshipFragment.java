@@ -44,7 +44,7 @@ public class SelectTownshipFragment extends Fragment {
         list = bundle.getStringArrayList("township");
         pcode = bundle.getStringArrayList("pcode");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         township.setAdapter(adapter);
 
@@ -56,6 +56,7 @@ public class SelectTownshipFragment extends Fragment {
                 activity.select_district.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
                 activity.select_township.setAlpha((float) 0.25);
                 activity.fragmentManager.popBackStack();
+                activity.fragement_state = "district";
 
             }
         });

@@ -65,6 +65,7 @@ public class SelectDistrictFragment extends Fragment {
                 activity.select_state.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
                 activity.select_district.setAlpha((float) 0.25);
                 activity.fragmentManager.popBackStack();
+                activity.fragement_state = "state";
 
             }
         });

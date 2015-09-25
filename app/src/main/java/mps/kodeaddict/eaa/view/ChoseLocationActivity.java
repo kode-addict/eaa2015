@@ -44,9 +44,10 @@ public class ChoseLocationActivity extends AppCompatActivity {
     GeoAPIHelper geoapi;
 
     String st, st_pcode, dt, dt_pcode;
+    String fragement_state;
+
 
     public void state_selected(final String state) {
-        Toast.makeText(getApplicationContext(), state, Toast.LENGTH_SHORT).show();
         e = getPreferences(MODE_PRIVATE).edit();
         e.putString("state", state);
         e.commit();
@@ -79,6 +80,7 @@ public class ChoseLocationActivity extends AppCompatActivity {
                 fragment.setArguments(bundle);
 
                 fragmentManager.beginTransaction().setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.enter, R.anim.exit).replace(R.id.mfragment, fragment, "district").addToBackStack("district").commit();
+                fragement_state = "district";
             }
 
             @Override
@@ -91,7 +93,6 @@ public class ChoseLocationActivity extends AppCompatActivity {
     }
 
     public void district_selected(String district,String dt_pcode) {
-        Toast.makeText(getApplicationContext(), district, Toast.LENGTH_SHORT).show();
         e = getPreferences(MODE_PRIVATE).edit();
         e.putString("district", district);
         e.putString("dt_pcode", dt_pcode);
@@ -126,6 +127,7 @@ public class ChoseLocationActivity extends AppCompatActivity {
                     fragment.setArguments(bundle);
 
                     fragmentManager.beginTransaction().setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.enter, R.anim.exit).replace(R.id.mfragment, fragment, "township").addToBackStack(null).commit();
+                    fragement_state = "township";
                 } else {
                     startActivity(new Intent(ChoseLocationActivity.this, MainActivity.class));
                     finish();
@@ -143,7 +145,6 @@ public class ChoseLocationActivity extends AppCompatActivity {
     }
 
     public void township_selected(String township) {
-        Toast.makeText(getApplicationContext(), township, Toast.LENGTH_SHORT).show();
         e = getPreferences(MODE_PRIVATE).edit();
         e.putString("township", township);
         e.commit();
@@ -172,21 +173,26 @@ public class ChoseLocationActivity extends AppCompatActivity {
 
         fragment = new SelectStateFragment();
         fragmentManager.beginTransaction().replace(R.id.mfragment, fragment, "state").addToBackStack(null).commit();
+        fragement_state = "state";
     }
 
     @Override
     public void onBackPressed() {
         //super.onBackPressed();
-        if (fragment.getTag().equals("state")) {
+        if (fragement_state.equals("state")) {
+            /*startActivity(new Intent(ChoseLocationActivity.this, MainActivity.class));
+            finish();*/
             super.onBackPressed();
-        } else if (fragment.getTag().equals("district")) {
+        } else if (fragement_state.equals("district")) {
             select_state.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
             select_district.setAlpha((float) 0.25);
             fragmentManager.popBackStack();
-        } else if (fragment.getTag().equals("township")) {
+            fragement_state = "state";
+        } else if (fragement_state.equals("township")) {
             select_district.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
             select_township.setAlpha((float) 0.25);
             fragmentManager.popBackStack();
+            fragement_state = "district";
         }
     }
 }
