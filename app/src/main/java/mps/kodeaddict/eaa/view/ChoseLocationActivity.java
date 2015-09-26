@@ -48,7 +48,6 @@ public class ChoseLocationActivity extends AppCompatActivity {
 
 
     public void state_selected(final String state) {
-        e = getPreferences(MODE_PRIVATE).edit();
         e.putString("state", state);
         e.commit();
         st = state;
@@ -93,7 +92,6 @@ public class ChoseLocationActivity extends AppCompatActivity {
     }
 
     public void district_selected(String district,String dt_pcode) {
-        e = getPreferences(MODE_PRIVATE).edit();
         e.putString("district", district);
         e.putString("dt_pcode", dt_pcode);
         e.commit();
@@ -129,6 +127,8 @@ public class ChoseLocationActivity extends AppCompatActivity {
                     fragmentManager.beginTransaction().setCustomAnimations(R.anim.enter, R.anim.exit, R.anim.enter, R.anim.exit).replace(R.id.mfragment, fragment, "township").addToBackStack(null).commit();
                     fragement_state = "township";
                 } else {
+                    e.putBoolean("is_first",false);
+                    e.commit();
                     startActivity(new Intent(ChoseLocationActivity.this, MainActivity.class));
                     finish();
                 }
@@ -145,7 +145,6 @@ public class ChoseLocationActivity extends AppCompatActivity {
     }
 
     public void township_selected(String township) {
-        e = getPreferences(MODE_PRIVATE).edit();
         e.putString("township", township);
         e.commit();
 
@@ -168,6 +167,8 @@ public class ChoseLocationActivity extends AppCompatActivity {
 
         select_district.setAlpha((float) 0.25);
         select_township.setAlpha((float) 0.25);
+
+        e = eaa.preference.edit();
 
         fragmentManager = getFragmentManager();
 

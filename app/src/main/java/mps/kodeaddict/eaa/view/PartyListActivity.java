@@ -1,11 +1,15 @@
 package mps.kodeaddict.eaa.view;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.widget.Toast;
+
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
 import org.maepaysoh.maepaysohsdk.PartyAPIHelper;
 import org.maepaysoh.maepaysohsdk.models.Party;
@@ -14,6 +18,7 @@ import org.maepaysoh.maepaysohsdk.models.PartyListReturnObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import mps.kodeaddict.eaa.MainActivity;
 import mps.kodeaddict.eaa.R;
 import mps.kodeaddict.eaa.adapter.PartyAdapter;
 import mps.kodeaddict.eaa.eaa;
@@ -33,13 +38,21 @@ public class PartyListActivity extends AppCompatActivity {
     List<PartyModel> partys;
     PartyAdapter adapter;
 
+    ProgressDialog dialog;
+    FloatingActionsMenu mfloat;
+    MainActivity main;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.party_list);
-
+        main = new MainActivity();
         getSupportActionBar().hide();
+
+
+        mfloat = (FloatingActionsMenu) findViewById(R.id.mfloat);
+        mfloat = main.addButton(this, mfloat);
 
         partys = new ArrayList<PartyModel>();
 
@@ -49,7 +62,12 @@ public class PartyListActivity extends AppCompatActivity {
 
         PartyAPIHelper party_api = eaa.mps.getPartyApiHelper();
 
-        party_api.getPartiesAsync(new Callback<PartyListReturnObject>() {
+        String dt_pcode = eaa.preference.getString("dt_pcode", "");
+
+        dialog = ProgressDialog.show(this, null, Html.fromHtml("<font color='#21BA45'>Working...</font>"), true);
+        dialog.setCancelable(false);
+
+        party_api.getPartiesAsync(dt_pcode, new Callback<PartyListReturnObject>() {
             @Override
             public void success(PartyListReturnObject partyListReturnObject, Response response) {
                 partys.clear();
@@ -81,6 +99,9 @@ public class PartyListActivity extends AppCompatActivity {
 
                 adapter = new PartyAdapter(getApplicationContext(), partys);
                 party_list.setAdapter(adapter);
+                dialog.dismiss();
+
+                Toast.makeText(getApplicationContext(), "Total " + adapter.getItemCount(), Toast.LENGTH_LONG).show();
 
             }
 

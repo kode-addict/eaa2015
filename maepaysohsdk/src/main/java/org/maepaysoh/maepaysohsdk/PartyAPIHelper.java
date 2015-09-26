@@ -35,12 +35,12 @@ public class PartyAPIHelper {
    * @param party
    */
 
-  public void getPartiesAsync(Callback<PartyListReturnObject> party) {
+  public void getPartiesAsync(String dt_pcode , Callback<PartyListReturnObject> party) {
     boolean unicode = Utils.isUniCode(mContext);
-    getPartiesAsync(new PartyAPIPropertiesMap(), party);
+    getPartiesAsync(dt_pcode, new PartyAPIPropertiesMap(), party);
   }
 
-  public void getPartiesAsync(PartyAPIPropertiesMap partyAPIPropertiesMap,
+  public void getPartiesAsync(String dt_pcode, PartyAPIPropertiesMap partyAPIPropertiesMap,
       Callback<PartyListReturnObject> party) {
     boolean unicode =
         partyAPIPropertiesMap.getBoolean(PartyAPIProperties.IS_UNICODE, Utils.isUniCode(mContext));

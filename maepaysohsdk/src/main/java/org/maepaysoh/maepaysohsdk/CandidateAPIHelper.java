@@ -38,8 +38,8 @@ public class CandidateAPIHelper {
    *
    * @param callback - Retrofit {@link Callback}
    */
-  public void getCandidatesAsync(Callback<CandidateListReturnObject> callback) {
-    getCandidatesAsync(new CandidateAPIPropertiesMap(), callback);
+  public void getCandidatesAsync(String dt_pcode, Callback<CandidateListReturnObject> callback) {
+    getCandidatesAsync(dt_pcode, new CandidateAPIPropertiesMap(), callback);
   }
 
   /**
@@ -49,7 +49,7 @@ public class CandidateAPIHelper {
    * CandidateAPIProperties}
    * @param callback - Retrofit {@link Callback}
    */
-  public void getCandidatesAsync(CandidateAPIPropertiesMap propertiesMap,
+  public void getCandidatesAsync(String dt_pcode, CandidateAPIPropertiesMap propertiesMap,
       Callback<CandidateListReturnObject> callback) {
     String gender = propertiesMap.getString(CandidateAPIProperties.GENDER, "");
     String religion = propertiesMap.getString(CandidateAPIProperties.RELIGION, "");
@@ -58,7 +58,7 @@ public class CandidateAPIHelper {
     boolean unicode =
         propertiesMap.getBoolean(CandidateAPIProperties.IS_UNICODE, Utils.isUniCode(mContext));
     int firstPage = propertiesMap.getInteger(CandidateAPIProperties.FIRST_PAGE, 1);
-    int perPage = propertiesMap.getInteger(CandidateAPIProperties.PER_PAGE, 15);
+    int perPage = propertiesMap.getInteger(CandidateAPIProperties.PER_PAGE, 25);
 
     Map<CandidateService.PARAM_FIELD, String> optionParams = new HashMap<>();
     if (withParty) {
@@ -74,6 +74,7 @@ public class CandidateAPIHelper {
     optionParams.put(CandidateService.PARAM_FIELD.page, String.valueOf(firstPage));
     optionParams.put(CandidateService.PARAM_FIELD.per_page, String.valueOf(perPage));
     optionParams.put(CandidateService.PARAM_FIELD.legislature, legislature);
+    optionParams.put(CandidateService.PARAM_FIELD.constituency_dt_pcode , dt_pcode);
     mCandidateService.listCandidatesAsync(optionParams, callback);
   }
 

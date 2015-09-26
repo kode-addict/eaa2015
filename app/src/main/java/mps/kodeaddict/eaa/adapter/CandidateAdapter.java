@@ -84,7 +84,8 @@ public class CandidateAdapter extends RecyclerView.Adapter<CandidateAdapter.View
         holder.name.setText(can.name);
         holder.education.setText(can.education);
         holder.legislature.setText(can.legislature);
-        holder.ward_const.setText(can.ward_village+" / "+can.const_name);
+        //holder.ward_const.setText(can.ward_village+" / "+can.const_name);
+        holder.ward_const.setText(can.const_name);
         Picasso.with(mContext).load(can.photo).transform(new CircleTransform()).resize(105, 105).into(holder.img);
 
     }

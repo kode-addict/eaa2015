@@ -1,12 +1,22 @@
 package mps.kodeaddict.eaa;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
+import org.maepaysoh.maepaysohsdk.models.Party;
 
 import mps.kodeaddict.eaa.view.CandidateListActivity;
 import mps.kodeaddict.eaa.view.ChangePasswordActivity;
@@ -18,6 +28,8 @@ import mps.kodeaddict.eaa.view.SignupActivit;
 public class MainActivity extends AppCompatActivity {
 
     Button candidate, party, login, signup, changepass, chose;
+
+    SharedPreferences preference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +87,79 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        preference = eaa.preference;
+
+        Boolean is_first = preference.getBoolean("is_first", true);
+
+        if(is_first){
+            startActivity(new Intent(MainActivity.this, ChoseLocationActivity.class));
+        }else{
+            startActivity(new Intent(MainActivity.this, CandidateListActivity.class));
+        }
+
+    }
+
+    public FloatingActionsMenu addButton(final Activity activity, FloatingActionsMenu menu){
+
+        FloatingActionButton login = new FloatingActionButton(activity);
+        login.setTitle("Login");
+        login.setColorNormalResId(R.color.white);
+        login.setColorPressedResId(R.color.white_pressed);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.startActivity(new Intent(v.getContext(), LoginActivity.class));
+                activity.finish();
+
+            }
+        });
+        menu.addButton(login);
+
+        FloatingActionButton candidate = new FloatingActionButton(menu.getContext());
+        candidate.setTitle("Candidate");
+        candidate.setColorNormalResId(R.color.white);
+        candidate.setColorPressedResId(R.color.white_pressed);
+        candidate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.startActivity(new Intent(v.getContext(), CandidateListActivity.class));
+                activity.finish();
+            }
+        });
+        menu.addButton(candidate);
+
+        FloatingActionButton party = new FloatingActionButton(menu.getContext());
+        party.setTitle("Party");
+        party.setColorNormalResId(R.color.white);
+        party.setColorPressedResId(R.color.white_pressed);
+        party.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.startActivity(new Intent(v.getContext(), Party.class));
+                activity.finish();
+            }
+        });
+        menu.addButton(party);
+
+        FloatingActionButton faq = new FloatingActionButton(menu.getContext());
+        faq.setTitle("Faq");
+        faq.setColorNormalResId(R.color.white);
+        faq.setColorPressedResId(R.color.white_pressed);
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.startActivity(new Intent(v.getContext(), LoginActivity.class));
+                activity.finish();
+            }
+        });
+        menu.addButton(faq);
+
+        return menu;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     @Override
