@@ -84,6 +84,7 @@ public class ChoseLocationActivity extends AppCompatActivity {
 
             @Override
             public void failure(RetrofitError error) {
+                dialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
             }
         });
@@ -138,6 +139,7 @@ public class ChoseLocationActivity extends AppCompatActivity {
 
             @Override
             public void failure(RetrofitError error) {
+                dialog.dismiss();
                 Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
             }
         });

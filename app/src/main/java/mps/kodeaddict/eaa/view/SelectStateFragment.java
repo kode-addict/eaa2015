@@ -28,6 +28,7 @@ public class SelectStateFragment extends Fragment {
     Button next;
 
     List<String> list;
+    List<String> state_pcode;
 
     @Nullable
     @Override
@@ -48,7 +49,6 @@ public class SelectStateFragment extends Fragment {
         list.add("Mon");
         list.add("Shan (North)");
         list.add("Bago West");
-        list.add("Naypyitaw Conuncil");
         list.add("Shan (South)");
         list.add("Tanintharyi");
         list.add("Yangon");
@@ -60,6 +60,25 @@ public class SelectStateFragment extends Fragment {
         list.add("Sagaing");
         list.add("Ayeyarwady");
 
+        state_pcode = new ArrayList<String>();
+        state_pcode.add("MMR010");
+        state_pcode.add("MMR009");
+        state_pcode.add("MMR012");
+        state_pcode.add("MMR002");
+        state_pcode.add("MMR011");
+        state_pcode.add("MMR015");
+        state_pcode.add("MMR008");
+        state_pcode.add("MMR014");
+        state_pcode.add("MMR013");
+        state_pcode.add("MMR007");
+        state_pcode.add("MMR004");
+        state_pcode.add("MMR016");
+        state_pcode.add("MMR003");
+        state_pcode.add("MMR005");
+        state_pcode.add("MMR017");
+
+
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, list);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         state.setAdapter(adapter);
@@ -69,6 +88,7 @@ public class SelectStateFragment extends Fragment {
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int i = state.getSelectedItemPosition();
                 activity.state_selected(state.getSelectedItem().toString());
             }
         });

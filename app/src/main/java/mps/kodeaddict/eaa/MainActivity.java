@@ -32,18 +32,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         getSupportActionBar().hide();
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
 
-        candidate = (Button) findViewById(R.id.candidate);
-        party = (Button) findViewById(R.id.party);
-        login = (Button) findViewById(R.id.login);
-        signup = (Button) findViewById(R.id.signup);
-        changepass = (Button) findViewById(R.id.changepass);
-        chose = (Button) findViewById(R.id.chose);
-        faq=(Button) findViewById(R.id.faq);
-
-
-        candidate.setOnClickListener(new View.OnClickListener() {
+        /*candidate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, CandidateListActivity.class));
@@ -92,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, FaqListActivity.class));
             }
         });
-
+*/
         preference = eaa.preference;
 
         Boolean is_first = preference.getBoolean("is_first", true);
@@ -102,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
         }else{
             startActivity(new Intent(MainActivity.this, CandidateListActivity.class));
         }
+
+        finish();
 
     }
 
@@ -159,6 +152,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         menu.addButton(faq);
+
+        FloatingActionButton choose = new FloatingActionButton(menu.getContext());
+        choose.setTitle("Choose Location");
+        choose.setColorNormalResId(R.color.white);
+        choose.setColorPressedResId(R.color.white_pressed);
+        choose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                activity.startActivity(new Intent(v.getContext(), ChoseLocationActivity.class));
+                activity.finish();
+            }
+        });
+        menu.addButton(choose);
 
         return menu;
     }

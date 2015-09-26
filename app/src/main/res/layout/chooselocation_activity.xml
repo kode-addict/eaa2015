@@ -19,7 +19,7 @@
                 android:id="@+id/select_state"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="1.Chose State"
+                android:text="1.Choose State"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
         </FrameLayout>
@@ -34,7 +34,7 @@
                 android:id="@+id/select_district"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="2.Chose District"
+                android:text="2.Choose District"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
         </FrameLayout>
@@ -49,7 +49,7 @@
                 android:id="@+id/select_township"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="3.Chose Township"
+                android:text="3.Choose Township"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
         </FrameLayout>
