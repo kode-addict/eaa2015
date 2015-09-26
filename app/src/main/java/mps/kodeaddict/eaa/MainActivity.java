@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.CharacterPickerDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,13 +22,14 @@ import org.maepaysoh.maepaysohsdk.models.Party;
 import mps.kodeaddict.eaa.view.CandidateListActivity;
 import mps.kodeaddict.eaa.view.ChangePasswordActivity;
 import mps.kodeaddict.eaa.view.ChoseLocationActivity;
+import mps.kodeaddict.eaa.view.FaqActivity;
 import mps.kodeaddict.eaa.view.LoginActivity;
 import mps.kodeaddict.eaa.view.PartyListActivity;
 import mps.kodeaddict.eaa.view.SignupActivit;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button candidate, party, login, signup, changepass, chose;
+    Button candidate, party, login, signup, changepass, chose, faq;
 
     SharedPreferences preference;
 
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
         signup = (Button) findViewById(R.id.signup);
         changepass = (Button) findViewById(R.id.changepass);
         chose = (Button) findViewById(R.id.chose);
+        faq=(Button) findViewById(R.id.faq);
+
 
         candidate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +88,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(MainActivity.this, ChoseLocationActivity.class));
+            }
+        });
+
+        faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                startActivity(new Intent(MainActivity.this, FaqActivity.class));
             }
         });
 
@@ -155,11 +167,6 @@ public class MainActivity extends AppCompatActivity {
         menu.addButton(faq);
 
         return menu;
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
     }
 
     @Override

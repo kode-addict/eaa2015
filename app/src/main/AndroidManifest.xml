@@ -25,6 +25,7 @@
         <activity android:name=".view.SignupActivit"/>
         <activity android:name=".view.ChangePasswordActivity"/>
         <activity android:name=".view.ChoseLocationActivity"/>
+        <activity android:name=".view.FaqActivity"/>
     </application>
 
 </manifest>
