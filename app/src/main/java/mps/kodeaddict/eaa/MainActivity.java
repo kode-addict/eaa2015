@@ -1,28 +1,22 @@
 package mps.kodeaddict.eaa;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.text.method.CharacterPickerDialog;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 
-import org.maepaysoh.maepaysohsdk.models.Party;
-
 import mps.kodeaddict.eaa.view.CandidateListActivity;
 import mps.kodeaddict.eaa.view.ChangePasswordActivity;
 import mps.kodeaddict.eaa.view.ChoseLocationActivity;
-import mps.kodeaddict.eaa.view.FaqActivity;
+import mps.kodeaddict.eaa.view.FaqListActivity;
 import mps.kodeaddict.eaa.view.LoginActivity;
 import mps.kodeaddict.eaa.view.PartyListActivity;
 import mps.kodeaddict.eaa.view.SignupActivit;
@@ -95,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                startActivity(new Intent(MainActivity.this, FaqActivity.class));
+                startActivity(new Intent(MainActivity.this, FaqListActivity.class));
             }
         });
 
@@ -147,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         party.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.startActivity(new Intent(v.getContext(), Party.class));
+                activity.startActivity(new Intent(v.getContext(), PartyListActivity.class));
                 activity.finish();
             }
         });
@@ -160,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
         faq.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                activity.startActivity(new Intent(v.getContext(), LoginActivity.class));
+                activity.startActivity(new Intent(v.getContext(), FaqListActivity.class));
                 activity.finish();
             }
         });

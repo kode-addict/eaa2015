@@ -6,7 +6,7 @@
     android:padding="6dp">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/candidate_list"
+        android:id="@+id/faq_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
@@ -20,5 +20,6 @@
         fab:fab_addButtonColorPressed="@color/white_pressed"
         fab:fab_addButtonPlusIconColor="@color/half_black"
         fab:fab_labelStyle="@style/menu_labels_style"
-        fab:fab_labelsPosition="left"/>
+        fab:fab_labelsPosition="left" />
+
 </RelativeLayout>

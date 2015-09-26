@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
+
 import org.maepaysoh.maepaysohsdk.FAQAPIHelper;
 import org.maepaysoh.maepaysohsdk.models.FAQ;
 import org.maepaysoh.maepaysohsdk.models.FAQListReturnObject;
@@ -14,6 +16,7 @@ import org.maepaysoh.maepaysohsdk.models.FAQListReturnObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import mps.kodeaddict.eaa.MainActivity;
 import mps.kodeaddict.eaa.R;
 import mps.kodeaddict.eaa.adapter.FaqAdapter;
 import mps.kodeaddict.eaa.eaa;
@@ -25,7 +28,7 @@ import retrofit.client.Response;
 /**
  * Created by root on 9/26/15.
  */
-public class FaqActivity extends AppCompatActivity{
+public class FaqListActivity extends AppCompatActivity{
 
 
     private RecyclerView.LayoutManager mLayoutManager;
@@ -34,12 +37,19 @@ public class FaqActivity extends AppCompatActivity{
     List<FaqModel> faq;
     FaqAdapter adapter;
 
+    FloatingActionsMenu mfloat;
+    MainActivity main;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.faq_list);
+        setContentView(R.layout.faqlist_activity);
+        main = new MainActivity();
         getSupportActionBar().hide();
+
+        mfloat = (FloatingActionsMenu) findViewById(R.id.mfloat);
+        mfloat = main.addButton(this, mfloat);
 
         faq=new ArrayList<>();
 

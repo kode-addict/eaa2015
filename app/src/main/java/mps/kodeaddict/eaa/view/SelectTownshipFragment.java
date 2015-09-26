@@ -17,6 +17,7 @@ import java.util.List;
 
 import mps.kodeaddict.eaa.MainActivity;
 import mps.kodeaddict.eaa.R;
+import mps.kodeaddict.eaa.eaa;
 
 /**
  * Created by sanjay on 9/25/15.
@@ -66,7 +67,7 @@ public class SelectTownshipFragment extends Fragment {
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences.Editor e = activity.getPreferences(Context.MODE_PRIVATE).edit();
+                SharedPreferences.Editor e = eaa.preference.edit();
                 e.putBoolean("is_first",false);
                 e.commit();
                 startActivity(new Intent(activity, MainActivity.class));

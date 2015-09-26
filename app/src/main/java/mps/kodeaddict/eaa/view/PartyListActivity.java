@@ -2,7 +2,6 @@ package mps.kodeaddict.eaa.view;
 
 import android.app.ProgressDialog;
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -46,7 +45,7 @@ public class PartyListActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.party_list);
+        setContentView(R.layout.partylist_activity);
         main = new MainActivity();
         getSupportActionBar().hide();
 
