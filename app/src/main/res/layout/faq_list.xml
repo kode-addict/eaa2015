@@ -6,8 +6,9 @@
     android:padding="6dp">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/candidate_list"
+        android:id="@+id/faq_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        />
 
 </LinearLayout>

@@ -14,6 +14,25 @@ public class FAQ implements Serializable {
   private String type;
   private String basis;
   private List<String> sections = new ArrayList<>();
+  private String article_or_section;
+  private String law_or_source;
+
+  public String getLaw_or_source() {
+    return law_or_source;
+  }
+
+  public void setLaw_or_source(String law_or_source) {
+    this.law_or_source = law_or_source;
+  }
+
+  public String getArticle_or_section() {
+    return article_or_section;
+  }
+
+  public void setArticle_or_section(String article_or_section) {
+    this.article_or_section = article_or_section;
+  }
+
   private String url;
 
   /**
